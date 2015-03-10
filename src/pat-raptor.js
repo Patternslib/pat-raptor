@@ -20,19 +20,26 @@
 }(this, function($, _, Base, registry, Parser) {
     'use strict';
     var parser = new Parser('raptor');
-    parser.add_argument('toolbar', {}); // Allows the user to directly configure the CKEditor toolbar via JSON
+    parser.add_argument('config', {}); // Allows the user to directly configure Raptor via JSON
     parser.add_argument('buttons',
-        [ 'Source', 'Format', 'Bold', 'Italic', 'NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Image', 'Link', 'HorizontalRule', 'Table', '-', 'Undo', 'Redo' ],
-        [ '-', 'About', 'Anchor', 'BGColor', 'BidiLtr', 'BidiRtl', 'Blockquote',
-          'Bold', 'BulletedList', 'Button', 'Checkbox', 'Copy', 'CreateDiv',
-          'Cut', 'Find', 'Flash', 'Font', 'FontSize', 'Form', 'Format',
-          'HiddenField', 'HorizontalRule', 'Iframe', 'Image', 'ImageButton',
-          'Indent', 'Italic', 'JustifyBlock', 'JustifyCenter', 'JustifyLeft',
-          'JustifyRight', 'Language', 'Link', 'Maximize', 'NewPage', 'NumberedList',
-          'Outdent', 'PageBreak', 'Paste', 'PasteFromWord', 'PasteText', 'Preview',
-          'Print', 'Radio', 'Redo', 'Replace', 'Save', 'Scayt', 'Select', 'SelectAll',
-          'ShowBlocks', 'Smiley', 'Source', 'SpecialChar', 'Styles', 'Table',
-          'Templates', 'TextColor', 'TextField', 'Textarea', 'Undo', 'Unlink'],
+            [ 'alignCenter', 'alignJustify', 'alignLeft', 'alignRight',
+              'historyRedo', 'historyUndo', 'hrCreate', 'linkCreate',
+              'linkRemove', 'listOrdered', 'listUnordered', 'tableCreate',
+              'textBold', 'textItalic', 'textStrike', 'textUnderline'
+            ], [
+            'alignCenter', 'alignJustify', 'alignLeft', 'alignRight',
+            'cancel', 'classMenu', 'cleanBlock', 'clearFormatting',
+            'colorMenuBasic', 'dockToElement', 'dockToScreen', 'embed',
+            'floatLeft', 'floatNone', 'floatRight', 'fontFamilyMenu',
+            'guides', 'historyRedo', 'historyUndo', 'hrCreate',
+            'insertFile', 'languageMenu', 'linkCreate', 'linkRemove',
+            'listOrdered', 'listUnordered', 'logo', 'save',
+            'snippetMenu', 'specialCharacters', 'statistics', 'tableCreate',
+            'tableDeleteColumn', 'tableDeleteRow', 'tableInsertColumn', 'tableInsertRow',
+            'tagMenu', 'textBlockQuote', 'textBold', 'textItalic',
+            'textSizeDecrease', 'textSizeIncrease', 'textStrike', 'textSub',
+            'textSuper', 'textUnderline', 'viewSource'
+            ],
         true);
 
     return Base.extend({
@@ -41,16 +48,41 @@
 
         init: function patRaptorInit() {  
             this.options = parser.parse(this.$el);
-            var config = { toolbar: [] };
-            $.extend(true, config.toolbar, this.options.toolbar);
-            if (this.options.buttons instanceof Array) {
-                config.toolbar.push(this.options.buttons);
-            }
+            /*
             var cfg = {
-                'url': 'http://google.com',
-                'id': function () { alert('hello'); },
-                'postName': 'patternslib'
+                layouts: {
+                    toolbar: {
+                        uiOrder: [
+                            ['textBold', 'textItalic', 'textUnderline', 'textStrike',
+                              'listOrdered', 'listUnordered', 'linkCreate', 'linkRemove',
+                              'alignLeft', 'alignCenter', 'alignJustify', 'alignRight',
+                              'hrCreate', 'tableCreate', 'historyUndo', 'historyRedo'
+                            ]
+                        ]
+                    },
+                    hoverPanel: { uiOrder: [ ['clickButtonToEdit'] ] },
+                    elementHoverPanel: {
+                        elements: 'img',
+                        uiOrder: [
+                            ['imageResize', 'imageSwap', 'close']
+                        ]
+                    },
+                },
+                // Load the toolbar by default
+                autoEnable: true,
+                // Make sure the toolbar is docked
+                plugins: {
+                    dock: {
+                        docked: true,
+                        dockToElement: true
+                    }
+                }
             };
+            */
+            $.extend(true, config, this.options.config);
+            if (this.options.buttons instanceof Array) {
+                config.layouts.toolbar.uiOrder = this.options.buttons;
+            }
             this.$el.raptor(cfg);
         }
     });
