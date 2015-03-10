@@ -2,19 +2,22 @@
     if (typeof define === 'function' && define.amd) {
         define([
             "jquery",
-            "jquery.browser",
             "underscore",
             "pat-base",
             "pat-registry",
             "pat-parser",
-            "raptor-jquery"
+            "jqueryui",
+            "jquery-hotkeys",
+            "rangy",
+            "rangy-serializer",
+            "raptor"
         ], function() {
             return factory.apply(this, arguments);
         });
     } else {
-        factory($, null, _, Base, root.patterns, root.patterns.Parser);
+        factory($, _, Base, root.patterns, root.patterns.Parser);
     }
-}(this, function($, dummy, _, Base, registry, Parser) {
+}(this, function($, _, Base, registry, Parser) {
     'use strict';
     var parser = new Parser('raptor');
     parser.add_argument('toolbar', {}); // Allows the user to directly configure the CKEditor toolbar via JSON
@@ -36,14 +39,19 @@
         name: 'raptor',
         trigger: ".pat-raptor",
 
-        init: function patCKEditor() {  
+        init: function patRaptorInit() {  
             this.options = parser.parse(this.$el);
             var config = { toolbar: [] };
             $.extend(true, config.toolbar, this.options.toolbar);
             if (this.options.buttons instanceof Array) {
                 config.toolbar.push(this.options.buttons);
             }
-            this.$el.raptor(config);
+            var cfg = {
+                'url': 'http://google.com',
+                'id': function () { alert('hello'); },
+                'postName': 'patternslib'
+            };
+            this.$el.raptor(cfg);
         }
     });
 }));
