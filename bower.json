@@ -1,0 +1,26 @@
+{
+  "name": "pat-raptor",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Patternslib/pat-raptor",
+  "authors": [
+    "JC Brand <jc@opkode.com>"
+  ],
+  "description": "A Patternslib pattern for Raptor editor",
+  "keywords": [
+    "patternslib",
+    "pattern",
+    "raptor"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "patternslib": "master",
+    "underscore": "~1.8.2"
+  },
+  "resolutions": {
+    "jquery": "1.11.1"
+  }
+}
