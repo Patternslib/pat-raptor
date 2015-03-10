@@ -18,7 +18,11 @@
   ],
   "dependencies": {
     "patternslib": "master",
-    "underscore": "~1.8.2"
+    "underscore": "~1.8.2",
+    "raptor-editor": "https://github.com/PANmedia/raptor-editor.git",
+    "rangy": "~1.2.3",
+    "jqueryui": "~1.11.3",
+    "jquery.hotkeys": "*"
   },
   "resolutions": {
     "jquery": "1.11.1"
