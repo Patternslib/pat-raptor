@@ -73,13 +73,24 @@
                     break;
             }
             config.plugins.dock.dockTo = this.options.toolbar.external;
-
             $.extend(true, config, this.options.config);
             if (this.options.buttons instanceof Array && this.options.buttons.length) {
                 config.layouts.toolbar.uiOrder = [this.options.buttons];
             }
+            this.registerEventHandlers();
             this.$el.raptor(config);
+        },
+
+        registerEventHandlers: function () {
+            $(document).on("pat-inject-hook-raptor", function (ev) {
+                $.each(Raptor.instances, function (idx, instance) {
+                    if (instance.element[0] == this.$el[0]) {
+                        Raptor.instances[0].dirty = false;
+                    }
+                }.bind(this));
+            }.bind(this));
         }
+
     });
 }));
 

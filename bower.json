@@ -5,6 +5,7 @@
   "authors": [
     "JC Brand <jc@opkode.com>"
   ],
+  "main": "src/pat-raptor.js",
   "description": "A Patternslib pattern for Raptor editor",
   "keywords": [
     "patternslib",
