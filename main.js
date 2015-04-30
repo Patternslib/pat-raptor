@@ -25,17 +25,7 @@ require.config({
         "rangy-serializer": { "deps": ["rangy"] },
         "rangy-cssclassapplier": { "deps": ["rangy"] },
         "rangy-selectionsaverestore": { "deps": ["rangy"] },
-        "rangy": { "exports": "rangy" },
-        "raptor": {
-            "deps": [
-                "jquery",
-                "jqueryui",
-                "jquery-hotkeys",
-                "rangy-cssclassapplier",
-                "rangy-selectionsaverestore",
-                "rangy-serializer"
-            ]
-        }
+        "rangy": { "exports": "rangy" }
     }
 });
 

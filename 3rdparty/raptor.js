@@ -1,4 +1,17 @@
-(function(){;
+// XXX: This AMD wrapper has been added specially for pat-raptor
+(function (root, factory) {
+    define([
+        "jqueryui",
+        "jquery-hotkeys",
+        "rangy-cssclassapplier",
+        "rangy-selectionsaverestore",
+        "rangy-serializer"
+    ], function() {
+        return factory.apply(this, arguments);
+    });
+}(this, function($, _, Base, registry, Parser) {
+// XXX; Until here (and then check the end of the file as well)
+
 // File start: /var/deployments/www.raptor-editor.com.3/raptor-gold/raptor-dependencies/resizetable.js
 function countColumns(tableElement) {
     // calculate current number of columns of a table,
@@ -18910,4 +18923,6 @@ Raptor.registerPreset({
 });
 ;
 // File end: /var/deployments/www.raptor-editor.com.3/raptor-gold/raptor-editor/src/presets/inline.js
-})();
+// XXX: This the end of the AMD wrapper added for pat-raptor
+// {
+}));
