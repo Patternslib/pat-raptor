@@ -56,7 +56,6 @@
                 plugins: { dock: {} }
             };
             this.options = parser.parse(this.$el);
-            config.autoEnable = (this.options.toolbar.loading === "auto") ? true : false;
 
             switch (this.options.toolbar.type) {
                 case "floating":
@@ -78,6 +77,24 @@
                 config.layouts.toolbar.uiOrder = [this.options.buttons];
             }
             this.registerEventHandlers();
+
+            var $form = this.$el.closest('form');
+            var autosubmit = $form.hasClass('pat-autosubmit');
+            var autoload = this.options.toolbar.loading === "auto";
+            _.extend(config, {
+                'bind': {
+                    'enabled': function() {
+                        if (autosubmit && autoload) {
+                            // Raptor editor registers a handler for the submit event on
+                            // this form. That handler fires a change event which is caught
+                            // by patterns and causes an endless loop in which the form is
+                            // continuously submitted. We nip that in the bud here.
+                            $form.off("submit.raptor");
+                        }
+                    }
+                }
+            });
+            config.autoEnable = (autoload) ? true : false;
             this.$el.raptor(config);
         },
 
