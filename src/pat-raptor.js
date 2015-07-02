@@ -25,6 +25,12 @@
     parser.add_argument('toolbar-type', 'standard', ['standard', 'fixed', 'floating']);
     parser.add_argument('toolbar-external');
     parser.add_argument('toolbar-loading', 'auto', ['auto', 'click']);
+    
+    // Note, these relate to the File Manager plugin which is a premium plugin and not included in with this pattern.
+    parser.add_argument('image-browse-url');
+    parser.add_argument('image-upload-url');
+    parser.add_argument('image-pick-icon');
+
     parser.add_argument('buttons',
             [ 'alignCenter', 'alignJustify', 'alignLeft', 'alignRight',
               'historyRedo', 'historyUndo', 'hrCreate', 'linkCreate',
@@ -42,7 +48,7 @@
             'tableDeleteColumn', 'tableDeleteRow', 'tableInsertColumn', 'tableInsertRow',
             'tagMenu', 'textBlockQuote', 'textBold', 'textItalic',
             'textSizeDecrease', 'textSizeIncrease', 'textStrike', 'textSub',
-            'textSuper', 'textUnderline', 'viewSource'
+            'textSuper', 'textUnderline', 'viewSource', 'fileManager'
             ],
         true);
 
@@ -92,6 +98,13 @@
                             $form.off("submit.raptor");
                         }
                     }
+                },
+            });
+            _.extend(config.plugins, {
+                'fileManager': {
+                    'uriPublic': this.options.image['browse-url'],
+                    'uriAction': this.options.image['upload-url'],
+                    'uriIcon': this.options.image['pick-icon']
                 }
             });
             config.autoEnable = (autoload) ? true : false;
