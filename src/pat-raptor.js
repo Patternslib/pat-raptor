@@ -27,8 +27,8 @@
     parser.add_argument('toolbar-loading', 'auto', ['auto', 'click']);
     
     // Note, these relate to the File Manager plugin which is a premium plugin and not included in with this pattern.
-    parser.add_argument('image-browse-url');
-    parser.add_argument('image-upload-url');
+    parser.add_argument('image-path');
+    parser.add_argument('image-picker-url');
     parser.add_argument('image-pick-icon');
 
     parser.add_argument('buttons',
@@ -58,7 +58,23 @@
 
         init: function patRaptorInit() {
             var config = {
-                layouts: { toolbar: {} },
+                layouts: {
+                        toolbar: {},
+                        hoverPanel: {
+                            uiOrder: [
+                                ['clickButtonToEdit']
+                            ]
+                        },
+                        fileManager: {
+                            uiOrder: [
+                                ['insert', 'download', 'view']
+                            ]
+                        },
+                        elementHoverPanel: {
+                            elements: 'img',
+                            uiOrder: [['imageResize', 'imageSwap', 'close']]
+                        },
+                    },
                 plugins: { dock: {} }
             };
             this.options = parser.parse(this.$el);
@@ -100,14 +116,23 @@
                     }
                 },
             });
+            config.disabledPlugins = ['saveJson'];
             _.extend(config.plugins, {
                 'fileManager': {
-                    'uriPublic': this.options.image['browse-url'],
-                    'uriAction': this.options.image['upload-url'],
+                    'uriPublic': this.options.image.path,
+                    'uriAction': this.options.image['picker-url'],
                     'uriIcon': this.options.image['pick-icon']
+                },
+                'imageSwap': {
+                    'chooser': 'fileManager'
                 }
             });
             config.autoEnable = (autoload) ? true : false;
+            // Bit of a hack. Shitty Raptor doesn't allow you to remove buttons from a
+            // preset, only override them. So if you want fewer buttons then
+            // the preset provides, you're out of luck. So we register here an
+            // empty preset as default to work around that.
+            Raptor.registerPreset({'name': 'pat-raptor'}, true);
             this.$el.raptor(config);
         },
 
