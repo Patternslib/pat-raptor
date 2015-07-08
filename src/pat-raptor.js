@@ -27,9 +27,10 @@
     parser.add_argument('toolbar-loading', 'auto', ['auto', 'click']);
     
     // Note, these relate to the File Manager plugin which is a premium plugin and not included in with this pattern.
-    parser.add_argument('image-path');
-    parser.add_argument('image-picker-url');
-    parser.add_argument('image-pick-icon');
+    parser.add_argument('plugins', [], ['image-picker'], true);
+    parser.add_argument('image-path', '');
+    parser.add_argument('image-picker-url', '');
+    parser.add_argument('image-pick-icon', '');
 
     parser.add_argument('buttons',
             [ 'alignCenter', 'alignJustify', 'alignLeft', 'alignRight',
@@ -116,24 +117,30 @@
                     }
                 },
             });
-            config.disabledPlugins = ['saveJson'];
-            _.extend(config.plugins, {
-                'fileManager': {
-                    'uriPublic': this.options.image.path,
-                    'uriAction': this.options.image['picker-url'],
-                    'uriIcon': this.options.image['pick-icon']
-                },
-                'imageSwap': {
-                    'chooser': 'fileManager'
-                }
-            });
+            this.configurePlugins(config);
             config.autoEnable = (autoload) ? true : false;
-            // Bit of a hack. Shitty Raptor doesn't allow you to remove buttons from a
+            // Bit of a hack. Raptor doesn't allow you to remove buttons from a
             // preset, only override them. So if you want fewer buttons then
             // the preset provides, you're out of luck. So we register here an
             // empty preset as default to work around that.
             Raptor.registerPreset({'name': 'pat-raptor'}, true);
             this.$el.raptor(config);
+        },
+
+        configurePlugins: function (config) {
+            config.disabledPlugins = ['saveJson'];
+            if (!!~this.options.plugins.indexOf("image-picker")) {
+                _.extend(config.plugins, {
+                    'fileManager': {
+                        'uriPublic': this.options.image.path,
+                        'uriAction': this.options.image['picker-url'],
+                        'uriIcon': this.options.image['pick-icon']
+                    },
+                    'imageSwap': {
+                        'chooser': 'fileManager'
+                    }
+                });
+            }
         },
 
         registerEventHandlers: function () {
