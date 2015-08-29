@@ -13,7 +13,7 @@ require.config({
         "pat-registry":                 "bower_components/patternslib/src/core/registry",
         "pat-utils":                    "bower_components/patternslib/src/core/utils",
         "rangy-applier":                "bower_components/raptor-dependencies/rangy/rangy-applier",
-        "rangy-core":                   "bower_components/raptor-dependencies/rangy/rangy-core",
+        "rangy-core":                   "../lib/rangy-core",
         "rangy-cssclassapplier":        "bower_components/raptor-dependencies/rangy/rangy-cssclassapplier",
         "rangy-selectionsaverestore":   "bower_components/raptor-dependencies/rangy/rangy-selectionsaverestore",
         "rangy-serializer":             "bower_components/raptor-dependencies/rangy/rangy-serializer",
