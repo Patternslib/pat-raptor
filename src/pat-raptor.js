@@ -6,10 +6,6 @@
             "pat-base",
             "pat-registry",
             "pat-parser",
-            "jqueryui",
-            "jquery-hotkeys",
-            "rangy",
-            "rangy-serializer",
             "raptor"
         ], function() {
             return factory.apply(this, arguments);
@@ -17,7 +13,7 @@
     } else {
         factory($, _, Base, root.patterns, root.patterns.Parser);
     }
-}(this, function($, _, Base, registry, Parser) {
+}(this, function($, _, Base, registry, Parser, Raptor) {
     'use strict';
     var parser = new Parser('raptor');
     // Allows the user to directly configure Raptor via JSON
