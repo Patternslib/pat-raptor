@@ -76,7 +76,7 @@
                             uiOrder: [['imageResize', 'imageSwap', 'close']]
                         },
                     },
-                plugins: { dock: {} }
+                plugins: { dock: {}, placeholder: {} }
             };
             this.options = parser.parse(this.$el);
 
