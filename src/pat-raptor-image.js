@@ -1,7 +1,8 @@
 define([
     "pat-registry",
     "raptor",
-    "pat-modal"
+    "pat-modal",
+    "pat-upload"
 ], function(registry, Raptor, Modal) {
     'use strict';
 
@@ -12,10 +13,10 @@ define([
         this.$modal = $(
           '<div class="pat-modal">' +
           '  <h3>Upload Image<h3>' +
-          '  <div>Drop image or something</div>' +
+          '  <div class="pat-upload" data-pat-upload="url: https://example.org/upload; label: Drop files here to upload or click to browse.; trigger: button" />' +
           '</div>'
         ).appendTo('body');
-        this.$modal.patModal();
+        registry.scan(this.$modal);
       }
     });
 

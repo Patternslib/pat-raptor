@@ -18,9 +18,10 @@
     "bower_components"
   ],
   "dependencies": {
+    "pat-upload": "master",
     "patternslib": "master",
-    "underscore": "~1.8.2",
-    "raptor-dependencies": "https://github.com/PANmedia/raptor-dependencies.git"
+    "raptor-dependencies": "https://github.com/PANmedia/raptor-dependencies.git",
+    "underscore": "~1.8.2"
   },
   "resolutions": {
     "jquery": "1.11.1"

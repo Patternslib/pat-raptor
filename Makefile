@@ -1,7 +1,7 @@
 BOWER 		?= node_modules/.bin/bower
 HTTPSERVE   ?= node_modules/.bin/http-server
 
-all:: designerhappy
+all:: build
 
 ########################################################################
 ## Install dependencies
@@ -13,6 +13,8 @@ stamp-npm: package.json
 stamp-bower: stamp-npm
 	$(BOWER) install
 	touch stamp-bower
+
+build: stamp-npm stamp-bower
 
 clean::
 	rm -f stamp-npm stamp-bower
