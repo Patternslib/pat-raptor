@@ -1,9 +1,13 @@
+0. rangy-core.js was added from raptor-dependencies repository and applied
+   patch to work on chrome (look at the git history)
 
 1. Go to Raptor Editor download page:
     https://www.raptor-editor.com/download
 
 2. Select all plugins and languages.
 
-3. Unselect all libraries and options.
+3. Unselect all libraries and options, except keep export api option checked.
 
 4. Click download button and then download zip file and extract it in this folder
+
+5. remove example folder

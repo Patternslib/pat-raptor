@@ -6,7 +6,8 @@
             "pat-base",
             "pat-registry",
             "pat-parser",
-            "raptor"
+            "raptor",
+            "ploneintranet-image"
         ], function() {
             return factory.apply(this, arguments);
         });
@@ -45,7 +46,8 @@
             'tableDeleteColumn', 'tableDeleteRow', 'tableInsertColumn', 'tableInsertRow',
             'tagMenu', 'textBlockQuote', 'textBold', 'textItalic',
             'textSizeDecrease', 'textSizeIncrease', 'textStrike', 'textSub',
-            'textSuper', 'textUnderline', 'viewSource', 'fileManager'
+            'textSuper', 'textUnderline', 'viewSource', 'fileManager',
+            'ploneintranet-image'
             ],
         true);
 
