@@ -115,6 +115,12 @@
                     }
                 },
             });
+
+            var placeholderContent = this.$el.attr('placeholder');
+            if (config.plugins.placeholder && !config.plugins.placeholder.content && placeholderContent) {
+                config.plugins.placeholder.content = placeholderContent;
+            }
+
             this.configurePlugins(config);
             config.autoEnable = (autoload) ? true : false;
             // Bit of a hack. Raptor doesn't allow you to remove buttons from a
