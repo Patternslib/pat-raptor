@@ -4,10 +4,11 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>pat-raptor demo</title>
     <link rel="stylesheet" href="lib/raptor.css" />
+		<link rel="stylesheet" href="src/bower_components/patternslib/style/common.css" type="text/css">
     <link rel="stylesheet" href="lib/raptor-front-end.css" />
     <style>
-.raptor-ui-ploneintranet-image .ui-icon,
-.raptor-ui-ploneintranet-image.ui-state-hover .ui-icon {
+.raptor-ui-pat-raptor-image .ui-icon,
+.raptor-ui-pat-raptor-image.ui-state-hover .ui-icon {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcVJREFUeNrEkz1rFFEUhp+587nzmY2JYXeNki1isWKihZ0gaGFjIULA3sYfEQikFVsrwTaF+gdsY2ljF4KdYuNmY9yM2bkz47kzECxlU3jgMncu87znPS9zrbquuUgpLljO1s7OI3n25+S/OWVZDt7u7r6ah36yvf3cKbW2Ksnh7ksLZYFriy1ZMw0mnrQjK5AzGXa4BKMe6Aq2btcY1tFaq1K+3Lhi4TmQCbAUwfef0HHbdxPz5BRuyKAbAzidgWEM6+iiaAT60T7rvTW6Ub/pfH0FVpJWKBdgeKl1cqZb0UZA2EZAVxUfPr3mYxDy8NZj7o3uN5aNI2M7L2AxhKJsz0LXjFG1AoURELWDwwMWsgX2Tt5wfPKV1eWr9BZXuZx26XjS2gpb2GtH+13VFI3AbKZKUTs7HvDjl8N07PFu8plOcEgURsRRTBzHJHFClqQi3GdtecCdaz6GPXcw7D3A8zx83ycMQ5IkJssSut1UlsBZRCohRJGL8hW6zs8d2JU4+LvqJuGSXNJTKpe9YjqtOToqCYKgaXJzVBkHtjMZjz3bdXn/4uk//j6mWY7tehjWyjY3n4mD4VwXSakv1n+/jX8EGAAI68BpoWbP4wAAAABJRU5ErkJggg==) 0 0!important;
   width: 16px;
   height: 16px;
@@ -20,17 +21,14 @@
     <script data-main="main" src="src/bower_components/requirejs/require.js"></script>
 </head>
 <body role="document">
-    <div class="pat-bumper">
-        <span id="editor-toolbar"/>
-    </div>
+    <h1>pat-raptor demo</h1>
+
+    <div id="editor-toolbar"></div>
 
     <div class="container">
-        <h1>pat-raptor demo</h1>
         <textarea class="pat-raptor" rows="10" cols="100"
             placeholder="Write something ..."
-            data-pat-raptor="
-            image-pick-icon: /file-manager-icon;
-            toolbar-external: #editor-toolbar; buttons: textBold, textItalic, textUnderline, textStrike, listOrdered, listUnordered, linkCreate, linkRemove, tagMenu, alignLeft, alignCenter, alignJustify, alignRight, hrCreate, tableCreate, historyUndo, historyRedo, fileManager, ploneintranet-image;" />
+            data-pat-raptor="toolbar-external: #editor-toolbar; buttons: textBold, textItalic, textUnderline, textStrike, listOrdered, listUnordered, linkCreate, linkRemove, tagMenu, alignLeft, alignCenter, alignJustify, alignRight, hrCreate, tableCreate, historyUndo, historyRedo, fileManager, pat-raptor-image;" />
         </textarea>
     </div>
 </body>

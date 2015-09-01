@@ -7,7 +7,7 @@
             "pat-registry",
             "pat-parser",
             "raptor",
-            "ploneintranet-image"
+            "pat-raptor-image"
         ], function() {
             return factory.apply(this, arguments);
         });
@@ -47,7 +47,7 @@
             'tagMenu', 'textBlockQuote', 'textBold', 'textItalic',
             'textSizeDecrease', 'textSizeIncrease', 'textStrike', 'textSub',
             'textSuper', 'textUnderline', 'viewSource', 'fileManager',
-            'ploneintranet-image'
+            'pat-raptor-image'
             ],
         true);
 
