@@ -16,7 +16,20 @@ define([
           '  <div class="pat-upload" data-pat-upload="url: https://example.org/upload; label: Drop files here to upload or click to browse.; trigger: button" />' +
           '</div>'
         ).appendTo('body');
+
         registry.scan(this.$modal);
+
+        var raptor = this.raptor;
+        $('.pat-upload', this.$modal)
+            .data('pattern-upload')
+            .dropzone.on('complete', function(file) {
+                var image = $('img', file.previewElement).first().attr('src');
+                raptor.actionApply(function() {
+                    Raptor.selectionReplace($('<img src="' + image + '"/>')[0])
+                }.bind(this));
+                $(this.element).parents('.pat-modal').data('pattern-modal').destroy()
+            });
+
       }
     });
 
