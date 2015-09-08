@@ -20,6 +20,8 @@ require.config({
         "pat-registry":                 "bower_components/patternslib/src/core/registry",
         "pat-upload":                   "bower_components/pat-upload/src/pat-upload",
         "pat-utils":                    "bower_components/patternslib/src/core/utils",
+        "pat-tooltip":                  "bower_components/patternslib/src/pat/tooltip/tooltip",
+        "pat-remove":                   "bower_components/patternslib/src/core/remove",
         "preview":                      "bower_components/pat-upload/src/templates/preview.xml",
         "rangy-applier":                "bower_components/raptor-dependencies/rangy/rangy-applier",
         "rangy-core":                   "../lib/rangy-core",

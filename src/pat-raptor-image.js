@@ -6,7 +6,7 @@ define([
 ], function(registry, Raptor, Modal) {
     'use strict';
 
-    var Image = new Raptor.Button({
+    var ImageModal = new Raptor.Button({
       name: 'pat-raptor-image',
       action: function() {
         this.raptor.pause();
@@ -33,8 +33,8 @@ define([
       }
     });
 
-    Raptor.registerUi(Image);
+    Raptor.registerUi(ImageModal);
 
-    return Image;
+    return ImageModal;
 
 });

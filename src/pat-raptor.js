@@ -7,14 +7,15 @@
             "pat-registry",
             "pat-parser",
             "raptor",
-            "pat-raptor-image"
+            "pat-raptor-image",
+            "pat-raptor-link-tooltip"
         ], function() {
             return factory.apply(this, arguments);
         });
     } else {
         factory($, _, Base, root.patterns, root.patterns.Parser);
     }
-}(this, function($, _, Base, registry, Parser, Raptor) {
+}(this, function($, _, Base, registry, Parser, Raptor, ImageModal, LinkTooltip) {
     'use strict';
     var parser = new Parser('raptor');
     // Allows the user to directly configure Raptor via JSON
