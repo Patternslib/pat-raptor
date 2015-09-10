@@ -11,6 +11,7 @@ require.config({
         "pat-ajax":                     "bower_components/patternslib/src/pat/ajax/ajax",
         "pat-base":                     "bower_components/patternslib/src/core/base",
         "pat-compat":                   "bower_components/patternslib/src/core/compat",
+        "pat-checklist":                "bower_components/patternslib/src/pat/checklist/checklist",
         "pat-htmlparser":               "bower_components/patternslib/src/lib/htmlparser",
         "pat-inject":                   "bower_components/patternslib/src/pat/inject/inject",
         "pat-jquery-ext":               "bower_components/patternslib/src/core/jquery-ext",
