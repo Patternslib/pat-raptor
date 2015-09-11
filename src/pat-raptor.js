@@ -8,14 +8,15 @@
             "pat-parser",
             "raptor",
             "pat-raptor-image",
-            "pat-raptor-link-tooltip"
+            "pat-raptor-link-tooltip",
+            "pat-raptor-isdirty"
         ], function() {
             return factory.apply(this, arguments);
         });
     } else {
         factory($, _, Base, root.patterns, root.patterns.Parser);
     }
-}(this, function($, _, Base, registry, Parser, Raptor, ImageModal, LinkTooltip) {
+}(this, function($, _, Base, registry, Parser, Raptor, ImageModal, LinkTooltip, IsDirty) {
     'use strict';
     var parser = new Parser('raptor');
     // Allows the user to directly configure Raptor via JSON
@@ -75,7 +76,7 @@
                             uiOrder: [['imageResize', 'imageSwap', 'close']]
                         },
                     },
-                plugins: { dock: {}, placeholder: {} }
+                plugins: { dock: {}, placeholder: {}, isDirty: { target: '#document-body' } }
             };
             this.options = parser.parse(this.$el);
 
