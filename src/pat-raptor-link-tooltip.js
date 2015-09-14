@@ -12,7 +12,7 @@ define([
         var url = $(item).attr('href')
         $(item).patternTooltip({
           closing: 'sticky',
-          source: 'content_html',
+          source: 'content-html',
           content: $('<a/>').attr({target: '_blank', href: url}).text(url),
           trigger: 'hover'
         })
