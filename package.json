@@ -1,6 +1,6 @@
 {
   "name": "pat-raptor",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A Patternslib pattern for CKEditor",
   "main": "index.js",
   "scripts": {
