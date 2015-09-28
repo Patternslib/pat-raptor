@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.4 - Unreleased
+
+- Integration with pat-modal and pat-inject, for customzed image uploading.
+
 ## 0.0.3 - September 28, 2015
 
 - Add support for the fileManager premium plugin.
