@@ -7,7 +7,7 @@
             "pat-registry",
             "pat-parser",
             "raptor",
-            "pat-raptor-image",
+            "pat-raptor-imagepicker",
             "pat-raptor-link-tooltip",
             "pat-raptor-isdirty"
         ], function() {
@@ -16,7 +16,7 @@
     } else {
         factory($, _, Base, root.patterns, root.patterns.Parser);
     }
-}(this, function($, _, Base, registry, Parser, Raptor, ImageModal, LinkTooltip, IsDirty) {
+}(this, function($, _, Base, registry, Parser, Raptor, ImagePicker, LinkTooltip, IsDirty) {
     'use strict';
     var parser = new Parser('raptor');
     // Allows the user to directly configure Raptor via JSON
@@ -25,7 +25,8 @@
     parser.add_argument('toolbar-external');
     parser.add_argument('toolbar-loading', 'auto', ['auto', 'click']);
     
-    // Note, these relate to the File Manager plugin which is a premium plugin and not included in with this pattern.
+    // Note, these relate to the File Manager plugin which is a premium plugin
+    // and not included in with this pattern.
     parser.add_argument('plugins', [], ['image-picker'], true);
     parser.add_argument('image-path', '');
     parser.add_argument('image-picker-url', '');
@@ -49,7 +50,7 @@
             'tagMenu', 'textBlockQuote', 'textBold', 'textItalic',
             'textSizeDecrease', 'textSizeIncrease', 'textStrike', 'textSub',
             'textSuper', 'textUnderline', 'viewSource', 'fileManager',
-            'pat-raptor-image'
+            'patternImagePicker'
             ],
         true);
 
@@ -76,9 +77,18 @@
                             uiOrder: [['imageResize', 'imageSwap', 'close']]
                         },
                     },
-                plugins: { dock: {}, placeholder: {}, isDirty: { target: '#document-body' } }
+                plugins: {
+                  dock: {},
+                  isDirty: { target: '#document-body' },
+                  patternImagePicker: { url: 'unknown-and-must-be-set' },
+                  placeholder: {}
+                }
             };
             this.options = parser.parse(this.$el);
+
+            if (this.options.image['picker-url']) {
+                config.plugins.patternImagePicker.url = this.options.image['picker-url']
+            }
 
             switch (this.options.toolbar.type) {
                 case "floating":

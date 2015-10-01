@@ -7,8 +7,8 @@ define([
 ], function(registry, Raptor, Modal, Checklist) {
     'use strict';
 
-    var ImageModal = new Raptor.Button({
-      name: 'pat-raptor-image',
+    var ImagePicker = new Raptor.Button({
+      name: 'patternImagePicker',
       action: function() {
         var self = this;
 
@@ -19,17 +19,16 @@ define([
           self.modal.remove();
         }
 
-        self.modal = $('<div class="pat-modal large" id="pat-raptor-image"><div/></div>').hide().appendTo('body');
+        self.modal = $('<div class="pat-modal large" id="pattern-imagepicker"><div/></div>').hide().appendTo('body');
 
         if (!self.button.hasClass('pat-inject')) {
             self.button
               .addClass('pat-inject')
               .attr('data-pat-inject',
-                      // TODO: url needs to become configurable via pat-raptor
-                      'url:/feedback/panel-image-picker.html;' +
+                      'url:' + this.options.plugins.patternImagePicker.url + ';' +
                       'source:#content;' +
                       'hooks:raptor;' +
-                      'target:#pat-raptor-image');
+                      'target:#pattern-imagepicker');
 
             registry.scan(self.button);
 
@@ -71,8 +70,8 @@ define([
       }
     });
 
-    Raptor.registerUi(ImageModal);
+    Raptor.registerUi(ImagePicker);
 
-    return ImageModal;
+    return ImagePicker;
 
 });

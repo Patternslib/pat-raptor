@@ -6,7 +6,8 @@ define([
     'use strict';
 
   var initializeToolkit = function(eventName) {
-    $('a', this.raptor.target).each(function(i, item) {
+    var raptor = this.raptor;
+    $('a', raptor.target).each(function(i, item) {
       var tooltip = $(item).data('patterns.tooltip');
       var url = $(item).attr('href');
       var content = $(
@@ -45,7 +46,7 @@ define([
           var sel = rangy.getSelection();
           sel.setSingleRange(range);
 
-          this.raptor.getUi('linkCreate').action();
+          raptor.getUi('linkCreate').action();
         });
       }
     });
