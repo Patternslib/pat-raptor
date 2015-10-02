@@ -34,7 +34,7 @@ define([
 
         }
 
-        self.modal.on('pat-inject-content-loaded-final', function(e) {
+        self.modal.on('patterns-injected', function(e) {
             registry.scan(self.modal);
 
             self.modal.show();
