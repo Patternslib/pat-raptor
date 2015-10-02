@@ -13,6 +13,8 @@ define([
     IsDirty.prototype.enable = function(raptor) {
         this.raptor.bind('dirty', this.mark.bind(this));
         this.raptor.bind('cleaned', this.unmark.bind(this));
+        $(this.raptor.element).parents(this.options.target || 'body')
+            .on('patterns-injected', this.unmark.bind(this));
     };
 
     IsDirty.prototype.mark = function() {
