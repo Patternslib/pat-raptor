@@ -27,6 +27,7 @@
     
     // Note, these relate to the File Manager plugin which is a premium plugin
     // and not included in with this pattern.
+    // XXX: Should these be removed now that we have our own plugin for image picking?
     parser.add_argument('plugins', [], ['image-picker'], true);
     parser.add_argument('image-path', '');
     parser.add_argument('image-picker-url', '');
