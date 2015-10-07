@@ -1,5 +1,5 @@
 # pat-raptor
-A Patternslib pattern for [Raptor Editor](http://raptor-editor.com)
+A [Patternslib](http://patternslib.com) pattern for [Raptor Editor](http://raptor-editor.com)
 
 ## The image picker
 

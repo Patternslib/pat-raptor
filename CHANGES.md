@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.0.4 - Unreleased
+## 0.0.4 - October 7, 2015
 
-- Integration with pat-modal and pat-inject, for customzed image uploading.
+- Integration with pat-modal and pat-inject, for customized image uploading.
 
 ## 0.0.3 - September 28, 2015
 
