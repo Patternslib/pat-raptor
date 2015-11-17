@@ -44,7 +44,7 @@ define([
 
               self.raptor.actionApply(function() {
                   Raptor.selectionReplace(
-                      $('<img>').attr('src', $(this).parents('form').find('.checked input[type="radio"]').val())[0]
+                      $('<img>').attr('src', $(this).parents('form').find('label.checked input[type="radio"]').val())[0]
                   );
               }.bind(this));
 
