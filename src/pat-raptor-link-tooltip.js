@@ -28,7 +28,6 @@ define([
 
       if (tooltip === undefined) {
         $(item).patternTooltip({
-          closing: 'sticky',
           source: 'content-html',
           content: content,
           trigger: 'hover',
